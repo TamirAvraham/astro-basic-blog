@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css'
+import Nav from "../components/Nav.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
+
 const pageTitle = "About Me";
 const identity = {
   firstName: "Sarah",
@@ -10,26 +13,12 @@ const identity = {
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 const skillColor = "navy";
+
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <style define:vars={{skillColor}}>
-    .skill{
-        color: var(--skillColor);
-        font-weight: bold;
-    }
-    </style>
-</head>
-<body>
-    <nav><a href="/">Home</a><a href="/about/">About</a><a href="/blog">Blog Post</a></nav>
-    <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
     <h2>... And My New Astro Site</h2>
     <p>here are some facts about me:</p>
     <ul>
@@ -47,6 +36,4 @@ const skillColor = "navy";
     {finished && <p>I finished this tutorial!</p>}
 
     {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
-</body>
-</html>
+</BaseLayout>

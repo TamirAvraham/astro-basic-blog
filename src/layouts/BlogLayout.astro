@@ -1,0 +1,12 @@
+---
+import Tags from '../components/Tags.astro'
+const {frontmatter}=Astro.props
+---
+
+<h2>{frontmatter.title}</h2>
+<p>Published on {frontmatter.pubDate.toString().slice(0,10)}</p>
+<p><em>{frontmatter.description}</em></p>
+<p>{frontmatter.author}</p>
+<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+<Tags tags={frontmatter.tags}/>
+<slot/>
